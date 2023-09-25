@@ -1,6 +1,10 @@
 package com.example.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.service.AccountService;
+import com.example.service.MessageService;
 
 /**
  * TODO: You will need to write your own endpoints and handlers for your controller using Spring. The endpoints you will need can be
@@ -21,6 +25,14 @@ import org.springframework.web.bind.annotation.RestController;
 //added @RestController
 @RestController
 public class SocialMediaController {
+    public AccountService accountService;
+    public MessageService messageService;
+
+    @Autowired
+    public SocialMediaController(AccountService accountService, MessageService messageService){
+        this.accountService = accountService;
+        this.messageService = messageService;
+    }
 
     //POST  /register
 
