@@ -8,4 +8,17 @@ package com.example.repository;
 // foreign key (posted_by) references Account(account_id)
 
 public interface MessageRepository {
+
+    //process creation of new message
+
+    //retrieve all message
+
+    //retrieve message by id
+
+    //delete message by id
+
+    //update message by id
+
+    //retrieve all messages by a particular user
+    
 }

@@ -7,4 +7,9 @@ package com.example.repository;
 // password varchar(255)
 
 public interface AccountRepository {
+
+    //create a user
+
+    //verify login
+    
 }
