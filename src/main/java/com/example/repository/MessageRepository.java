@@ -1,6 +1,6 @@
 package com.example.repository;
 
-//what table looks like
+//what "message" table looks like
 // message_id integer primary key auto_increment,
 // posted_by integer,
 // message_text varchar(255),
