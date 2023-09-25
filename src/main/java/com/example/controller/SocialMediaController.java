@@ -25,14 +25,6 @@ import com.example.service.MessageService;
 //added @RestController
 @RestController
 public class SocialMediaController {
-    public AccountService accountService;
-    public MessageService messageService;
-
-    @Autowired
-    public SocialMediaController(AccountService accountService, MessageService messageService){
-        this.accountService = accountService;
-        this.messageService = messageService;
-    }
 
     //POST  /register
 
