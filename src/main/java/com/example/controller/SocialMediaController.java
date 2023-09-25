@@ -22,4 +22,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SocialMediaController {
 
+    //POST  /register
+
+    //POST  /login
+
+    //POST  /messages
+
+    //GET   /messages
+
+    //GET by id     /messages/{message_id}
+
+    //DELETE by id  /messages/{message_id}
+
+    //UPDATE by id  /messages/{message_id}
+
+    //GET by account id /accounts/{account_id}/messages
+
 }
