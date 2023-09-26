@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Account;
@@ -21,15 +22,6 @@ import com.example.service.MessageService;
  * where applicable as well as the @ResponseBody and @PathVariable annotations. You should
  * refer to prior mini-project labs and lecture materials for guidance on how a controller may be built.
  */
-
-    // POST: register
-    // POST: login
-    // POST: messages
-    // GET: messages
-    // GET: messagesById
-    // DELETE: messagesById
-    // PATCH: messagesById
-    // GET: messagesByUserId
  
 //added @RestController
 @RestController
@@ -41,7 +33,7 @@ public class SocialMediaController {
 
     //POST  /register
     @PostMapping("/register")
-    public ResponseEntity<Account> newAccount(){
+    public ResponseEntity<Account> newAccount(@RequestBody Account account){
         return null;
     }
 
@@ -75,7 +67,7 @@ public class SocialMediaController {
         return null;
     }
 
-    //UPDATE by id  /messages/{message_id}
+    //PATCH by id  /messages/{message_id}
     @PatchMapping("/messages/{message_id}")
     public ResponseEntity<Message> patchMessageById(){
         return null;
