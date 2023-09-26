@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MessageRepository {
 
-    //maybe?
     //process creation of new message
 
     //retrieve all message
