@@ -1,6 +1,9 @@
 package com.example.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.example.entity.Account;
 
 //what "account" table looks like
 // account_id integer primary key auto_increment,
@@ -9,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 //added Repository
 @Repository
-public interface AccountRepository {
+public interface AccountRepository extends JpaRepository<Account, Integer> {
 
     //create a user
 

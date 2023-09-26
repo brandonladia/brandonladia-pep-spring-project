@@ -1,6 +1,9 @@
 package com.example.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.example.entity.Message;
 
 //what "message" table looks like
 // message_id integer primary key auto_increment,
@@ -10,7 +13,7 @@ import org.springframework.stereotype.Repository;
 // foreign key (posted_by) references Account(account_id)
 
 @Repository
-public interface MessageRepository {
+public interface MessageRepository extends JpaRepository<Message, Integer> {
 
     //process creation of new message
 
