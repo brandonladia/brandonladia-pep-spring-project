@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Account;
@@ -29,6 +30,8 @@ public class SocialMediaController {
 
     @Autowired
     AccountService accountService;
+
+    @Autowired
     MessageService messageService;
 
     //POST  /register
@@ -51,8 +54,9 @@ public class SocialMediaController {
 
     //GET   /messages
     @GetMapping("/messages")
+    //@ResponseBody
     public List<Message> getAllMessages(){
-        return null;
+        return messageService.getAllMessages();
     }
 
     //GET by id     /messages/{message_id}
