@@ -35,6 +35,10 @@ import com.example.service.MessageService;
 @RestController
 public class SocialMediaController {
 
+    @Autowired
+    AccountService accountService;
+    MessageService messageService;
+
     //POST  /register
     @PostMapping("/register")
     public ResponseEntity<Account> newAccount(){
