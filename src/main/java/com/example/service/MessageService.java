@@ -30,6 +30,9 @@ public class MessageService {
     }
 
     //retrieve message by id
+    public Message getMessageById(int message_id){
+        return null;
+    }
 
     //delete message by id
 
