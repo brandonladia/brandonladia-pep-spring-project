@@ -54,7 +54,6 @@ public class SocialMediaController {
 
     //GET   /messages
     @GetMapping("/messages")
-    //@ResponseBody
     public List<Message> getAllMessages(){
         return messageService.getAllMessages();
     }
