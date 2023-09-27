@@ -75,6 +75,7 @@ public class SocialMediaController {
         Message message = messageService.getMessageById(messageId);
         return ResponseEntity.ok(message);
     }
+    //completed
 
     //DELETE by id  /messages/{message_id}
     @DeleteMapping("/messages/{message_id}")
