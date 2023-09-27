@@ -16,10 +16,14 @@ public class AccountService {
 
     //create a user
     public Account addAccount(Account account){
-        boolean test1 = account.getUsername().isBlank();
-        boolean test2 = account.getPassword().length() < 4;
-        boolean test3;
-        return accountRepository.save(account);
+        boolean test1 = account.getUsername().isBlank(); //valid
+        boolean test2 = account.getPassword().length() < 4; //valid
+        boolean test3 = account.getUsername().contains(account.getUsername());
+        if(test1 || test2){
+            return null;
+        } else {
+            return accountRepository.save(account);
+        }
     }
 
     //verify login

@@ -45,11 +45,7 @@ public class MessageService {
     }
 
     //delete message by id
-    public int deleteMessageById(int messageId){
-        return 0;
-    }
-    //build out
-    
+
     //update message by id
 
     //retrieve all messages by a particular user
