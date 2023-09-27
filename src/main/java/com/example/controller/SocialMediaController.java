@@ -48,8 +48,9 @@ public class SocialMediaController {
 
     //POST  /messages
     @PostMapping("/messages")
-    public ResponseEntity<Message> newMessage(){
-        return null;
+    public ResponseEntity<Message> newMessage(@RequestBody Message message){
+        Message postMessage = messageService.postMessage(message);
+        return ResponseEntity.ok(postMessage);
     }
 
     //GET   /messages
@@ -57,6 +58,7 @@ public class SocialMediaController {
     public List<Message> getAllMessages(){
         return messageService.getAllMessages();
     }
+    //completed
 
     //GET by id     /messages/{message_id}
     @GetMapping("/messages/{message_id}")

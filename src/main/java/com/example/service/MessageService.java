@@ -21,7 +21,7 @@ public class MessageService {
         boolean test1 = message.getMessage_text().isBlank();
         boolean test2 = message.getMessage_text().length() < 255;
         boolean test3; 
-        return null;
+        return messageRepository.save(message);
     }
 
     //retrieve all message
