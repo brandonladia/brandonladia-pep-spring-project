@@ -41,16 +41,17 @@ public class SocialMediaController {
     //POST  /register
     @PostMapping("/register")
     public ResponseEntity<Account> newAccount(@RequestBody Account account){
-        if(accountService.addAccount(account) != null){
+        Account checkAccount = accountService.addAccount(account);
+        if(checkAccount != null){
             return ResponseEntity.ok(account);
         } else {
-            return ResponseEntity.status(400).body(accountService.addAccount(account));
+            return ResponseEntity.status(400).body(checkAccount);
         }
     }
 
     //POST  /login
-    @PostMapping("/login")
-    public ResponseEntity<Account> registerLogin(){
+    @GetMapping("/login")
+    public ResponseEntity<Account> registerLogin(@RequestBody Account account){
         return null;
     }
 
@@ -83,13 +84,13 @@ public class SocialMediaController {
 
     //DELETE by id  /messages/{message_id}
     @DeleteMapping("/messages/{message_id}")
-    public ResponseEntity<Integer> deleteMessageById(){
+    public ResponseEntity<Integer> deleteMessageById(@PathVariable("message_id") int messageId){
         return null;
     }
 
     //PATCH by id  /messages/{message_id}
     @PatchMapping("/messages/{message_id}")
-    public ResponseEntity<Message> patchMessageById(){
+    public ResponseEntity<Message> patchMessageById(@PathVariable("message_id") int messag){
         return null;
     }
 

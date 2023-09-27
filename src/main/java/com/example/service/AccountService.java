@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,8 @@ public class AccountService {
     public Account addAccount(Account account){
         boolean test1 = account.getUsername().isBlank(); //valid
         boolean test2 = account.getPassword().length() < 4; //valid
-        boolean test3 = account.getUsername().contains(account.getUsername());
+        Optional<Account> duplicateUsername = accountRepository.findByUsername(account.getUsername());
+        boolean test3 = duplicateUsername.isPresent(); //work on
         if(test1 || test2){
             return null;
         } else {
@@ -27,5 +30,8 @@ public class AccountService {
     }
 
     //verify login
+    public Account verifyLogin(Account account){
+        return null;
+    }
     
 }

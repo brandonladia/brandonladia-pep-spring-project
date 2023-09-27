@@ -45,9 +45,16 @@ public class MessageService {
     }
 
     //delete message by id
+    public Message deleteMessageById(int messageId){
+        return null;
+    }
 
     //update message by id
 
     //retrieve all messages by a particular user
+    public List<Message> getAllMessagesByUserId(int postedBy){
+        List<Message> messageList = messageRepository.findMessagesByPostedBy(postedBy);
+        return messageList;
+    }
     
 }

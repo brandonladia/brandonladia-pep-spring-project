@@ -1,5 +1,8 @@
 package com.example.repository;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,16 +18,6 @@ import com.example.entity.Message;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 
-    //process creation of new message
-
-    //retrieve all message
-
-    //retrieve message by id
-
-    //delete message by id
-
-    //update message by id
-
-    //retrieve all messages by a particular user
+    List<Message> findMessagesByPostedBy(Integer posted_by);
     
 }
