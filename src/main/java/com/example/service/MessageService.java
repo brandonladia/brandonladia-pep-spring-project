@@ -18,9 +18,12 @@ public class MessageService {
 
     //process creation of new message
     public Message postMessage(Message message){
-        boolean test1 = message.getMessage_text().isBlank();
-        boolean test2 = message.getMessage_text().length() < 255;
-        boolean test3; 
+        boolean test1 = message.getMessage_text().isBlank(); //valid
+        boolean test2 = message.getMessage_text().length() >= 255; //valid
+        boolean test3 = message.getPosted_by() != null; //issue
+        if(test1 || test2){
+            return null;
+        } else
         return messageRepository.save(message);
     }
 

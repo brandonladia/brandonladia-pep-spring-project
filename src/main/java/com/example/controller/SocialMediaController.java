@@ -3,6 +3,7 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,8 +49,11 @@ public class SocialMediaController {
 
     //POST  /messages
     @PostMapping("/messages")
-    public ResponseEntity<Message> newMessage(@RequestBody Message message){
+    public ResponseEntity<?> newMessage(@RequestBody Message message){
         Message postMessage = messageService.postMessage(message);
+        if(postMessage == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("");
+        } else
         return ResponseEntity.ok(postMessage);
     }
 
