@@ -20,8 +20,7 @@ public class AccountService {
     public Account addAccount(Account account){
         boolean test1 = account.getUsername().isBlank(); //valid
         boolean test2 = account.getPassword().length() < 4; //valid
-        Optional<Account> duplicateUsername = accountRepository.findByUsername(account.getUsername());
-        boolean test3 = duplicateUsername.isPresent(); //work on
+        boolean test3;
         if(test1 || test2){
             return null;
         } else {
