@@ -18,8 +18,8 @@ public class MessageService {
 
     //process creation of new message
     public Message postMessage(Message message){
-        boolean test1;
-        boolean test2;
+        boolean test1 = message.getMessage_text().isBlank();
+        boolean test2 = message.getMessage_text().length() < 255;
         boolean test3; 
         return null;
     }
@@ -30,7 +30,8 @@ public class MessageService {
     }
 
     //retrieve message by id
-    public Message getMessageById(int message_id){
+    public Message getMessageById(int messageId){
+        messageRepository.getById(messageId);
         return null;
     }
 

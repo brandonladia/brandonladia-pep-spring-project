@@ -16,6 +16,9 @@ public class AccountService {
 
     //create a user
     public Account addAccount(Account account){
+        boolean test1 = account.getUsername().isBlank();
+        boolean test2 = account.getPassword().length() < 4;
+        boolean test3;
         return accountRepository.save(account);
     }
 
