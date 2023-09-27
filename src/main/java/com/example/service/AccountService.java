@@ -21,8 +21,9 @@ public class AccountService {
         boolean test1 = account.getUsername().isBlank(); //valid
         boolean test2 = account.getPassword().length() < 4; //valid
         boolean test3 = accountRepository.findAccountByUsername(account.getUsername()).isPresent(); //valid
-
-        if(test3){
+        if(test1 || test2){
+            return null;
+        } else if(test3) {
             return null;
         } else {
             return accountRepository.save(account);

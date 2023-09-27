@@ -48,6 +48,8 @@ public class SocialMediaController {
             return ResponseEntity.status(HttpStatus.OK).build();
         }
     }
+    //ResponseEntity.status(HttpStatus.CONFLICT).build();       409
+    //ResponseEntity.status(HttpStatus.BAD_REQUEST).build();    400
 
     //POST  /login
     @GetMapping("/login")
