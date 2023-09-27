@@ -35,7 +35,6 @@ public class MessageService {
 
     //retrieve message by id
     public Message getMessageById(int messageId){
-        messageRepository.getById(messageId);
         return null;
     }
 
