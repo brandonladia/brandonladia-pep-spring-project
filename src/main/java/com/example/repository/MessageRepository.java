@@ -20,7 +20,5 @@ import com.example.entity.Message;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
     
-    @Query("FROM message WHERE posted_by = :posted_by")
-    Message findByPostedBy(@Param("posted_by") int posted_by);
 
 }
