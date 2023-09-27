@@ -53,8 +53,7 @@ public class MessageService {
 
     //retrieve all messages by a particular user
     public List<Message> getAllMessagesByUserId(int postedBy){
-        List<Message> messageList = messageRepository.findMessagesByPostedBy(postedBy);
-        return messageList;
+        return null;
     }
     
 }
