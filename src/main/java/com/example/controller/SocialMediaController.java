@@ -53,8 +53,9 @@ public class SocialMediaController {
         Message postMessage = messageService.postMessage(message);
         if(postMessage == null){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("");
-        } else
-        return ResponseEntity.ok(postMessage);
+        } else {
+            return ResponseEntity.ok(postMessage);
+        }
     }
 
     //GET   /messages
