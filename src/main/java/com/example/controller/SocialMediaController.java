@@ -42,10 +42,10 @@ public class SocialMediaController {
     @PostMapping("/register")
     public ResponseEntity<Account> newAccount(@RequestBody Account account){
         Account checkAccount = accountService.addAccount(account);
-        if(checkAccount != null){
-            return ResponseEntity.ok(account);
+        if(checkAccount == null){
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         } else {
-            return ResponseEntity.status(400).body(checkAccount);
+            return ResponseEntity.status(HttpStatus.OK).build();
         }
     }
 
