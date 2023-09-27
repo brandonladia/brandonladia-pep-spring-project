@@ -57,10 +57,10 @@ public class SocialMediaController {
 
     //POST  /messages
     @PostMapping("/messages")
-    public ResponseEntity<?> newMessage(@RequestBody Message message){
+    public ResponseEntity<Message> newMessage(@RequestBody Message message){
         Message postMessage = messageService.postMessage(message);
         if(postMessage == null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         } else {
             return ResponseEntity.ok(postMessage);
         }
