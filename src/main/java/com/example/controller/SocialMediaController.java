@@ -2,12 +2,15 @@ package com.example.controller;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -68,8 +71,9 @@ public class SocialMediaController {
 
     //GET by id     /messages/{message_id}
     @GetMapping("/messages/{message_id}")
-    public ResponseEntity<Message> getMessageById(){
-        return null;
+    public ResponseEntity<Message> getMessageById(@PathVariable("message_id") int messageId){
+        Message message = messageService.getMessageById(messageId);
+        return ResponseEntity.ok(message);
     }
 
     //DELETE by id  /messages/{message_id}
