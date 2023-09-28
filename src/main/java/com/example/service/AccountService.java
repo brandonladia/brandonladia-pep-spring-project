@@ -18,17 +18,18 @@ public class AccountService {
 
     //create a user
     public Account addAccount(Account account){
-        boolean test1 = account.getUsername().isBlank(); //valid
-        boolean test2 = account.getPassword().length() < 4; //valid
-        boolean test3 = accountRepository.findAccountByUsername(account.getUsername()).isPresent(); //valid
-        if(test1 || test2){
+        if (account.getUsername() == null || account.getUsername().trim().isEmpty()) {
             return null;
-        } else if(test3) {
-            return null;
-        } else {
-            return accountRepository.save(account);
         }
+        if (account.getPassword() == null || account.getPassword().length() < 4) {
+            return null;
+        }
+        if (accountRepository.findAccountByUsername(account.getUsername()) != null) {
+            return null;
+        }
+        return accountRepository.save(account);
     }
+    
 
     public boolean isUsernameDuplicate(String username){
         return accountRepository.findAccountByUsername(username) != null;
