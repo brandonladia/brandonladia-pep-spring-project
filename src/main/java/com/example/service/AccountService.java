@@ -24,7 +24,7 @@ public class AccountService {
         if (account.getPassword() == null || account.getPassword().length() < 4) {
             return null;
         }
-        if (accountRepository.findAccountByUsername(account.getUsername()) != null) {
+        if (accountRepository.findByUsername(account.getUsername()) != null) {
             return null;
         }
         return accountRepository.save(account);
@@ -32,7 +32,7 @@ public class AccountService {
     
 
     public boolean isUsernameDuplicate(String username){
-        return accountRepository.findAccountByUsername(username) != null;
+        return accountRepository.findByUsername(username) != null;
     }
 
     //verify login

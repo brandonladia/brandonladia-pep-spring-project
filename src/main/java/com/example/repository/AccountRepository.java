@@ -19,7 +19,7 @@ import com.example.entity.Account;
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 
     //@Query(value = "SELECT * FROM account WHERE username = ?", nativeQuery = true)
-    Account findAccountByUsername(String username);
+    Account findByUsername(String username);
 
     @Query(value = "SELECT * FROM account WHERE password = ?", nativeQuery = true)
     Optional<Account> findAccountByPassword(String password);
