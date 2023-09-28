@@ -70,7 +70,7 @@ public class SocialMediaController {
         if(postMessage == null){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         } else {
-            return ResponseEntity.ok(postMessage);
+            return ResponseEntity.status(HttpStatus.OK).body(postMessage);
         }
     }
     //in progress
