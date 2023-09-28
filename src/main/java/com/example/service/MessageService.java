@@ -60,15 +60,18 @@ public class MessageService {
     }
 
     //update message by id
-    public Message updateMessageById(Message message){
-        boolean test1 = messageRepository.existsById(message.getMessage_id());
-        boolean test2 = message.getMessage_text().equals(""); //valid
-        boolean test3 = message.getMessage_text().length() > 255; //valid
-        if(test1 && test2 && test3){
-            return null;
-        } else {
-            return messageRepository.save(message);
+    public int updateMessageById(Integer messageId, String update){
+        if (update == null || update.trim().isEmpty() || update.length() > 255) {
+            return 0;
         }
+        Optional<Message> optionalMessage = messageRepository.findById(messageId);
+        if (optionalMessage.isPresent()) {
+            Message message = optionalMessage.get();
+            message.setMessage_text(update);
+            messageRepository.save(message);
+            return 1; 
+        }
+        return 0;
     }
 
     //retrieve all messages by a particular user

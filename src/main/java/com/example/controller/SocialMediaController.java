@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.websocket.server.PathParam;
 
@@ -100,13 +101,14 @@ public class SocialMediaController {
 
     //PATCH by id  /messages/{message_id}
     @PatchMapping("/messages/{message_id}")
-    public ResponseEntity<?> patchMessageById(@PathVariable("message_id") Message message){
-        Message messages = messageService.updateMessageById(message);
-        if(messages == null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        } else {
-            return ResponseEntity.ok(1);
+    public ResponseEntity<Integer> patchMessageById(@PathVariable("message_id") Integer messageId, 
+    @RequestBody Map<String, String> body){
+        String updateMessage = body.get("message_text");
+        int updatedRow = messageService.updateMessageById(messageId, updateMessage);
+        if (updatedRow == 0) {
+            return ResponseEntity.badRequest().build();
         }
+        return ResponseEntity.ok(updatedRow);
     }
 
     //GET by account id /accounts/{account_id}/messages
