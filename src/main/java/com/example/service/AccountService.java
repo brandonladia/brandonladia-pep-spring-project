@@ -30,6 +30,10 @@ public class AccountService {
         }
     }
 
+    public boolean isUsernameDuplicate(String username){
+        return accountRepository.findAccountByUsername(username) != null;
+    }
+
     //verify login
     public Account verifyLogin(Account account){
         return null;

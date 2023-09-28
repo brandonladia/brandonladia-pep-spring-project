@@ -42,11 +42,14 @@ public class SocialMediaController {
     @PostMapping("/register")
     public ResponseEntity<Account> newAccount(@RequestBody Account account){
         Account checkAccount = accountService.addAccount(account);
-        if(checkAccount == null){
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(checkAccount);
+        if (checkAccount == null) {
+            if (accountService.isUsernameDuplicate(account.getUsername())) {
+                return ResponseEntity.status(409).build();
+            } else {
+                return ResponseEntity.badRequest().build();
+            }
         }
+        return ResponseEntity.ok(checkAccount); 
     }
     //ResponseEntity.status(HttpStatus.CONFLICT).build();       409
     //ResponseEntity.status(HttpStatus.BAD_REQUEST).build();    400
