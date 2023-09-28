@@ -45,9 +45,9 @@ public class MessageService {
     }
 
     //delete message by id
-    public Message deleteMessageById(int messageId){
+    public int deleteMessageById(int messageId){
         messageRepository.deleteById(messageId);
-        return null;
+        return 1;
     }
 
     //update message by id

@@ -66,11 +66,11 @@ public class SocialMediaController {
     //POST  /messages
     @PostMapping("/messages")
     public ResponseEntity<Message> newMessage(@RequestBody Message message){
-        int poster = message.getPosted_by();
-        boolean test;
-        if(true){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+        // int poster = message.getPosted_by();
+        // boolean test;
+        // if(true){
+        //     return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        // }
         //build out
         
         Message postMessage = messageService.postMessage(message);
@@ -85,6 +85,7 @@ public class SocialMediaController {
     //GET   /messages
     @GetMapping("/messages")
     public List<Message> getAllMessages(){
+        ResponseEntity.status(200);
         return messageService.getAllMessages();
     }
     //completed
@@ -99,8 +100,9 @@ public class SocialMediaController {
 
     //DELETE by id  /messages/{message_id}
     @DeleteMapping("/messages/{message_id}")
-    public ResponseEntity<Integer> deleteMessageById(@PathVariable("message_id") int messageId){
-        return null;
+    public int deleteMessageById(@PathVariable("message_id") int messageId){
+        ResponseEntity.status(200);
+        return messageService.deleteMessageById(messageId);
     }
 
     //PATCH by id  /messages/{message_id}
