@@ -36,7 +36,11 @@ public class AccountService {
     }
 
     //verify login
-    public Account verifyLogin(Account account){
+    public Account verifyLogin(String username, String password){
+        Account loggedAccount = accountRepository.findByUsername(username);
+        if (loggedAccount != null && password.equals(loggedAccount.getPassword())) {
+            return loggedAccount;
+        }
         return null;
     }
     

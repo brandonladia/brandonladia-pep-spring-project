@@ -51,20 +51,18 @@ public class SocialMediaController {
         }
         return ResponseEntity.ok(checkAccount); 
     }
-    //ResponseEntity.status(HttpStatus.CONFLICT).build();       409
-    //ResponseEntity.status(HttpStatus.BAD_REQUEST).build();    400
-    //work more on
+    //completed
 
     //POST  /login
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<Account> registerLogin(@RequestBody Account account){
-        Account loggedIn = accountService.verifyLogin(account);
-        if(loggedIn == null){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(loggedIn);
+        Account authenticatedAccount = accountService.verifyLogin(account.getUsername(), account.getPassword());
+        if (authenticatedAccount == null) {
+            return ResponseEntity.status(401).build();
         }
+        return ResponseEntity.ok(authenticatedAccount);
     }
+    //completed
 
     //POST  /messages
     @PostMapping("/messages")
