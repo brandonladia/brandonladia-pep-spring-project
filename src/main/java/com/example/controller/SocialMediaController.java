@@ -59,7 +59,7 @@ public class SocialMediaController {
         if(loggedIn == null){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         } else {
-            return ResponseEntity.status(HttpStatus.OK).build();
+            return ResponseEntity.status(HttpStatus.OK).body(loggedIn);
         }
     }
 

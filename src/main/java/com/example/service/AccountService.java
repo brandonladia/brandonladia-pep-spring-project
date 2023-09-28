@@ -32,6 +32,7 @@ public class AccountService {
 
     //verify login
     public Account verifyLogin(Account account){
+        Optional<Account> accounts = accountRepository.findUsernameAndPassword(account.getUsername(), account.getPassword());
         return account;
     }
     
