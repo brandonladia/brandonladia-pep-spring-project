@@ -53,9 +53,9 @@ public class MessageService {
     //update message by id
     public Message updateMessageById(Message message){
         boolean test1 = messageRepository.existsById(message.getMessage_id());
-        boolean test2 = message.getMessage_text().isBlank(); //valid
+        boolean test2 = message.getMessage_text().equals(""); //valid
         boolean test3 = message.getMessage_text().length() > 255; //valid
-        if(test1 || test2 || test3){
+        if(test1 && test2 && test3){
             return null;
         } else {
             return messageRepository.save(message);

@@ -45,7 +45,7 @@ public class SocialMediaController {
         if(checkAccount == null){
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         } else {
-            return ResponseEntity.status(HttpStatus.OK).build();
+            return ResponseEntity.status(HttpStatus.OK).body(checkAccount);
         }
     }
     //ResponseEntity.status(HttpStatus.CONFLICT).build();       409
