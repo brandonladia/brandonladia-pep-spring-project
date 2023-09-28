@@ -67,21 +67,13 @@ public class SocialMediaController {
     //POST  /messages
     @PostMapping("/messages")
     public ResponseEntity<Message> newMessage(@RequestBody Message message){
-        // int poster = message.getPosted_by();
-        // boolean test;
-        // if(true){
-        //     return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        // }
-        //build out
-        
-        Message postMessage = messageService.postMessage(message);
-        if(postMessage == null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(postMessage);
+        Message newMessage = messageService.postMessage(message);
+        if (newMessage == null) {
+            return ResponseEntity.badRequest().build();
         }
+        return ResponseEntity.ok(newMessage);
     }
-    //in progress
+    //completed
 
     //GET   /messages
     @GetMapping("/messages")

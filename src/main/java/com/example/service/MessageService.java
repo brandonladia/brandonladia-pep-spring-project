@@ -25,14 +25,13 @@ public class MessageService {
 
     //process creation of new message
     public Message postMessage(Message message){
-        boolean test1 = message.getMessage_text().isBlank(); //valid
-        boolean test2 = message.getMessage_text().length() >= 255; //valid
-        boolean test3 = message.getPosted_by() == null; //issue
-        if(test1 || test2){
+        if (message.getMessage_text() == null || message.getMessage_text().trim().isEmpty() || message.getMessage_text() .length() > 255) {
             return null;
-        } else {
-            return messageRepository.save(message);
         }
+        if (accountRepository.findById(message.getPosted_by()).isEmpty()) {
+            return null;
+        }
+        return messageRepository.save(message);
     }
 
     //retrieve all message
