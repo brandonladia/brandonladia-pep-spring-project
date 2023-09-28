@@ -22,6 +22,7 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     Optional<Account> findAccountByUsername(String username);
 
     @Query(value = "FROM account where username = ? AND password = ?", nativeQuery = true)
-    Optional<Account> findUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+    Account findUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+    //may switch to Optional<Account>
 
 }
