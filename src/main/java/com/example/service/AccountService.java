@@ -10,7 +10,10 @@ import com.example.repository.AccountRepository;
 
 @Service
 public class AccountService {
+    
+    @Autowired
     AccountRepository accountRepository;
+    
     @Autowired
     public AccountService(AccountRepository accountRepository){
         this.accountRepository = accountRepository;
