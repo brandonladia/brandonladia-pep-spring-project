@@ -98,8 +98,9 @@ public class SocialMediaController {
 
     //PATCH by id  /messages/{message_id}
     @PatchMapping("/messages/{message_id}")
-    public ResponseEntity<Message> patchMessageById(@PathVariable("message_id") int messag){
-        return null;
+    public ResponseEntity<?> patchMessageById(@PathVariable("message_id") Message message){
+        messageService.updateMessageById(message);
+        return ResponseEntity.ok(1);
     }
 
     //GET by account id /accounts/{account_id}/messages

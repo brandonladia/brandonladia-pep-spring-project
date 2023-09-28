@@ -32,7 +32,7 @@ public class AccountService {
 
     //verify login
     public Account verifyLogin(Account account){
-        return null;
+        return account;
     }
     
 }
