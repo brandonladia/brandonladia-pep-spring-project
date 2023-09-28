@@ -55,7 +55,12 @@ public class SocialMediaController {
     //POST  /login
     @GetMapping("/login")
     public ResponseEntity<Account> registerLogin(@RequestBody Account account){
-        return null;
+        Account loggedIn = accountService.verifyLogin(account);
+        if(loggedIn == null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }
     }
 
     //POST  /messages

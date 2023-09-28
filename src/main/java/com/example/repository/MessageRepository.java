@@ -20,5 +20,7 @@ import com.example.entity.Message;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
     
+    @Query(value = "SELECT * FROM message WHERE posted_by = ?", nativeQuery = true)
+    List<Message> findMessagesPostedBy(Integer posted_by);
 
 }
